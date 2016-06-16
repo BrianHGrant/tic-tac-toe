@@ -11,21 +11,20 @@ $(function(){
         game.turn = "O";
         game.turnCounter++;
       }
+      if (players === 1) {
+        computerMove();
+        board.space[randOne][randTwo].spaceMark(playerO);
+        alert(board.space[randOne][randTwo]);
+        spaceID = 33;
+        $("#" + spaceID).html("<img src='img/o.png'>");
+        game.turn = "X";
+        game.turnCounter++;
+      }
       else {
-        if (players === 1) {
-          computerMove();
-          board.space[randOne][randTwo].spaceMark(playerO)
-          debugger;
-          $(output).html("<img src='img/o.png'>");
-          game.turn = "X";
-          game.turnCounter++;
-        }
-        else {
-          board.space[x][y].spaceMark(playerO)
-          $(output).html("<img src='img/o.png'>");
-          game.turn = "X";
-          game.turnCounter++;
-        }
+        board.space[x][y].spaceMark(playerO)
+        $(output).html("<img src='img/o.png'>");
+        game.turn = "X";
+        game.turnCounter++;
       }
       win(board.space,x,y);
     }
